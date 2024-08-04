@@ -10,10 +10,12 @@ from os import getenv
 app = Flask(__name__)
 app.register_blueprint(app_views)
 
+
 @app.teardown_appcontext
 def exit(exception):
     ''' close the API if an unexpected error occurs '''
     storage.close()
+
 
 if __name__ == '__main__':
     host = getenv("HBNB_API_HOST") or '0.0.0.0'

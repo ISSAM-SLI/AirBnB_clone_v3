@@ -76,7 +76,7 @@ class DBStorage:
         self.__session.remove()
 
     def get(self, cls, id):
-        """Retrieve a specific object by class and ID."""
+        """retrieve a specific object by class and ID."""
         objs = self.__session.query(cls).all()
         for obj in objs:
             if obj.id == id:

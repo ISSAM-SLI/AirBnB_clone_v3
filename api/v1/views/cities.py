@@ -3,7 +3,7 @@
 Module for handling JSON responses for city-related operations.
 """
 
-from api.v1.views import app_views
+"""from api.v1.views import app_views
 from flask import jsonify, make_response, request, abort
 from models import storage
 from models.city import City

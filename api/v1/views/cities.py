@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module for handling JSON responses for City-related operations.
+Module for handling JSON responses for city-related operations.
 """
 
 from api.v1.views import app_views
@@ -12,7 +12,7 @@ from models.state import State
 
 @app_views.route('/states/<state_id>/cities', strict_slashes=False)
 def all_cities(state_id):
-    """Fetches and returns all cities for a specified state."""
+    """Fetches and return all cities for a specified state."""
     state = storage.get(State, state_id)
     if state is None:
         abort(404)
@@ -48,7 +48,7 @@ def del_city(city_id=None):
 
 
 @app_views.route('/states/<state_id>/cities', methods=['POST'],
-                 strict_slashes=False)
+        strict_slashes=False)
 def create_city(state_id):
     """Creates a new city within the specified state."""
     if state_id is None:
@@ -81,7 +81,7 @@ def update_city(city_id=None):
         abort(400, 'Not a JSON')
     for key in new.keys():
         if key != 'id' and key != 'created_at' and\
-           key != 'state_id' and key != 'updated_at':
-            setattr(response, key, new[key])
+                key != 'state_id' and key != 'updated_at':
+                    setattr(response, key, new[key])
     response.save()
     return make_response(jsonify(response.to_dict()), 200)

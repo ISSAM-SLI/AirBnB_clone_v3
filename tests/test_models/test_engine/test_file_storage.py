@@ -121,12 +121,12 @@ class TestFileStorage(unittest.TestCase):
         count = len(storage.all())
         self.assertEqual(count, storage.count())
 
-    @unittest.skipIf(models.storage_t == 'db', "not testing db storage"
+    @unittest.skipIf(models.storage_t == 'db', "not testing db storage")
     def test_get(self):
-         """ Ensure get method retrieves the correct object """
-         storage = FileStorage()
-         obj = State(name='New York')
-         obj.save()
-         storage.save()
-         new = storage.get(State, obj.id)
-         self.assertEqual(new, obj)
+        """ Ensure get method retrieves the correct object """
+        storage = FileStorage()
+        obj = State(name='New York')
+        obj.save()
+        storage.save()
+        new = storage.get(State, obj.id)
+        self.assertEqual(new, obj)

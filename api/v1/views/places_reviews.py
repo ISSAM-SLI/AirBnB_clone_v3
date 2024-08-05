@@ -14,7 +14,7 @@ from models.user import User
 @app_views.route('/places/<place_id>/reviews', strict_slashes=False)
 def all_reviews(place_id):
     """
-    Retrieve all reviews associated with a specific place.
+    Retrieve all Reviews associated with a specific place.
     Returns a list of reviews in JSON format.
     """
     place = storage.get(Place, place_id)
@@ -57,7 +57,7 @@ def delete_review(review_id):
 def create_review(place_id):
     """
     Create a new review for a specific place.
-    Requires 'text' and 'user_id' in the request body.
+    Requires [text] and [user_id] in the request body.
     Returns the created review in JSON format with a 201 status code.
     """
     place = storage.get(Place, place_id)

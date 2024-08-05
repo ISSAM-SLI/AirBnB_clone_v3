@@ -72,7 +72,7 @@ def modify_user(user_id=None):
     except Exception:
         pass
     if update_data is None or type(update_data) is not dict:
-        abort(400, 'Not a JSON')
+        abort(404, 'Not a JSON')
     for key in update_data.keys():
         if key not in ['id', 'created_at', 'updated_at']:
             setattr(user, key, update_data[key])

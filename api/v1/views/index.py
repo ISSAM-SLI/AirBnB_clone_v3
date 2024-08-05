@@ -19,7 +19,7 @@ classes = {"amenities": Amenity, "cities": City,
 
 @app_views.route('/status', strict_slashes=False)
 def index():
-    """Return the status of the API"""
+    """return the status of the API"""
     response = {"status": "OK"}
     return jsonify(response)
 

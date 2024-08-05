@@ -63,7 +63,7 @@ def add_user():
 
 @app_views.route('/users/<user_id>', methods=['PUT'], strict_slashes=False)
 def modify_user(user_id=None):
-    """ Update an existing User object by its ID """
+    """ update an existing User object by its ID """
     user = storage.get(User, user_id)
     if user_id is None or user is None:
         abort(404)

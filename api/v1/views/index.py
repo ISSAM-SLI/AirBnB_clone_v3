@@ -26,7 +26,7 @@ def index():
 
 @app_views.route('/stats', strict_slashes=False)
 def stats():
-    """Return the count of each object type"""
+    """return the count of each object type"""
     response = {}
     for key, value in classes.items():
         response[key] = storage.count(value)

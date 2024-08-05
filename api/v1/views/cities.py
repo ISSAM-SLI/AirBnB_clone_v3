@@ -69,7 +69,7 @@ def create_city(state_id):
 
 @app_views.route('/cities/<city_id>', methods=['PUT'], strict_slashes=False)
 def update_city(city_id=None):
-    """Updates the attributes of an existing city."""
+    """updates the attributes of an existing city."""
     response = storage.get(City, city_id)
     if city_id is None or response is None:
         abort(404)

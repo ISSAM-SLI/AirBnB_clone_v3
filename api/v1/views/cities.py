@@ -9,11 +9,14 @@ from models.state import State
 from api.v1.views import app_views
 
 
-@app_views.route('/cities', methods=['GET'], strict_slashes=False)
-def get_cities():
-    """ Retrieves the list of all City objects """
-    cities = storage.all(City).values()
-    return jsonify([city.to_dict() for city in cities])
+@app_views.route('/states/<state_id>/cities',
+                 methods=['GET'], strict_slashes=False)
+def get_cities(state_id):
+    """ Retrieves the list of all City objects of a State """
+    state = storage.get(State, state_id)
+    if state is None:
+        abort(404)
+    return jsonify([city.to_dict() for city in state.cities])
 
 
 @app_views.route('/cities/<city_id>', methods=['GET'], strict_slashes=False)

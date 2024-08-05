@@ -12,7 +12,7 @@ from models.state import State
 
 @app_views.route('/states/<state_id>/cities', strict_slashes=False)
 def all_cities(state_id):
-    """Fetches and return all cities for a specified state."""
+    """fetches and return all cities for a specified state."""
     state = storage.get(State, state_id)
     if state is None:
         abort(404)
@@ -25,7 +25,7 @@ def all_cities(state_id):
 
 @app_views.route('/cities/<city_id>', strict_slashes=False)
 def city_by_id(city_id=None):
-    """Retrieves and returns a city based on its ID."""
+    """retrieves and returns a city based on its ID."""
     response = storage.get(City, city_id)
     if response is None:
         abort(404)
@@ -34,7 +34,7 @@ def city_by_id(city_id=None):
 
 @app_views.route('/cities/<city_id>', methods=['DELETE'], strict_slashes=False)
 def del_city(city_id=None):
-    """Deletes a city given its ID and returns an empty dictionary."""
+    """deletes a city given its ID and returns an empty dictionary."""
     if city_id is None:
         abort(404)
     else:
@@ -50,7 +50,7 @@ def del_city(city_id=None):
 @app_views.route('/states/<state_id>/cities', methods=['POST'],
         strict_slashes=False)
 def create_city(state_id):
-    """Creates a new city within the specified state."""
+    """creates a new city within the specified state."""
     if state_id is None:
         abort(404)
     state = storage.get(State, state_id)
